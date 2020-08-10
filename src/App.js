@@ -9,17 +9,17 @@ class App extends Component {
       {
         id : 1,
         title : 'Take Out the trash',
-        completed : 'false'
+        completed : false
       },
       {
         id : 2,
         title : 'Dinner with wife',
-        completed : 'false'
+        completed : true
       },
       {
         id : 3,
         title : 'Meeting with Boss',
-        completed : 'false'
+        completed : false
       }
     ]
   }
