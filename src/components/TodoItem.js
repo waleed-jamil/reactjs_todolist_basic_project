@@ -16,9 +16,15 @@ class TodoItem extends Component {
     }
 
     render() {
+
+        const { id, title } = this.props.todo;
         return (
             <div style = {this.getStyle()}>
-                <p>{ this.props.todo.title }</p>
+                <p>
+                <input type="checkbox" onChange={this.props.toggleComplete.bind
+                    (this, id)}></input> {''}
+                    { title }
+                </p>
             </div>
         )
     }
