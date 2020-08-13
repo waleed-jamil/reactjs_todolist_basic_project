@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Todos from './components/Todos'
+import Header from './components/layout/Header'
 import './App.css';
 
 class App extends Component {
@@ -46,20 +47,12 @@ delItem = (id) => {
     //console.log(this.state.todos)
     return (
       <div className="App">
+          <Header/>
           <Todos todos = {this.state.todos} toggleComplete={this.toggleComplete}
                   delItem={this.delItem}/>
       </div>
     );
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//         {/* <h1>APP</h1> */}
-//         <Todos />
-//     </div>
-//   );
-// }
 
 export default App;
