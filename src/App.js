@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import Todos from './components/Todos'
 import Header from './components/layout/Header'
 import AddItem from './components/AddItem'
+import About from './components/pages/About'
 import './App.css';
 import {v4 as uuid} from 'uuid';
 
@@ -55,16 +57,26 @@ addItemToList = (title) => {
 }
 
   render() {
-    //console.log(this.state.todos)
+  
     return (
-      <div className="App">
-        <div className="container">
-          <Header/>
-          <AddItem addItemToList={this.addItemToList}/>
-          <Todos todos={this.state.todos} toggleComplete={this.toggleComplete}
-                 delItem={this.delItem}/>
+      <Router>
+        <div className="App">
+          <div className="container">
+            <Header/>
+
+            <Route exact path='/' render={props => (
+              <React.Fragment>
+                <AddItem addItemToList={this.addItemToList}/>
+                <Todos todos={this.state.todos} toggleComplete={this.toggleComplete}
+                delItem={this.delItem}/>
+              </React.Fragment>
+            )}/>
+
+            <Route path="/about" component={About}/>
+
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
